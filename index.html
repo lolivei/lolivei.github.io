@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OLIVL Page</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+
+            color: #333;
+            /* text-align: left; */
+            padding: 20px;
+            font-size: 24px;
+            text-transform: uppercase;
+        }
+        .image-list {
+            display: flex;
+
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 90px); 
+            overflow: auto;
+        }
+        img {
+            height: 100%;
+            margin: 10px;
+            flex: 0 1 calc(25% - 10px); /* Adjust to show 4 images in a row */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        OLIVL
+    </header>
+    <div class="image-list">
+        <img src="./photos/OLI09623.jpg" alt="Image 1">
+        <img src="./photos/OLI09316.jpg" alt="Image 2">
+        <img src="./photos/OLI09623.jpg" alt="Image 3">
+        <img src="./photos/OLI09623.jpg" alt="Image 4">
+        <img src="./photos/OLI09623.jpg" alt="Image 5">
+        <img src="./photos/OLI09623.jpg" alt="Image 6">
+    </div>
+</body>
+</html>
