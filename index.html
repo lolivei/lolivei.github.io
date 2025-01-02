@@ -8,42 +8,64 @@
         body {
             margin: 0;
             display: flex;
-            flex-direction: column;
+            flex-direction: column; 
             align-items: center;
         }
-        header {
 
-            color: #333;
-            /* text-align: left; */
+        .content {
+            width: 90%;
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+            padding-bottom: 20px;
+        }
+
+        header {
+            background-color: #333;
+            width: 90px;
+            color: #fff;
+            text-align: center;
             padding: 20px;
             font-size: 24px;
             text-transform: uppercase;
         }
-        .image-list {
-            display: flex;
 
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            height: calc(100vh - 90px); 
-            overflow: auto;
+        .img {
+            width: 100%;
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            height: calc(100vh - 105px); 
+            margin: 30px 0;
         }
-        img {
-            height: 100%;
-            margin: 10px;
-            flex: 0 1 calc(25% - 10px); /* Adjust to show 4 images in a row */
-        }
+        
+        .img.first {margin: 20px 0;}
+
+        .img.OLI09623 { background-image: url("./photos/OLI09623.jpg"); }
+        .img.OLI09444 { background-image: url("./photos/OLI09444.jpg"); }
+        .img.OLI09316 { background-image: url("./photos/OLI09316.jpg"); }
+        .img.OLI09294 { background-image: url("./photos/OLI09294.jpg"); }
+        .img.OLI09279 { background-image: url("./photos/OLI09279.jpg"); }
+        .img.OLI08925 { background-image: url("./photos/OLI08925.jpg"); }
+        .img.OLI07582 { background-image: url("./photos/OLI07582.jpg"); }
+        .img.OLI07002 { background-image: url("./photos/OLI07002.jpg"); }
+        .img.OLI04774 { background-image: url("./photos/OLI04774.jpg"); }
     </style>
 </head>
 <body>
-    <header>
-        OLIVL
-    </header>
-    <div class="image-list">
-        <img src="./photos/OLI09623.jpg">
-        <img src="./photos/OLI09444.jpg">
-        <img src="./photos/OLI09316.jpg">
-        <img src="./photos/OLI09294.jpg">
+    <div class="content">
+        <header>OLIVL</header>
+
+        <div class="img OLI09623 first" ></div>
+        <div class="img OLI09444"></div>
+        <div class="img OLI09316"></div>
+        <div class="img OLI09294"></div>
+
+        <div class="img OLI09279"></div>
+        <div class="img OLI08925"></div>
+        <div class="img OLI07582"></div>
+        <div class="img OLI07002"></div>
+        <div class="img OLI04774"></div>
     </div>
 </body>
 </html>
