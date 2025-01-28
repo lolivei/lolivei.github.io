@@ -1,4 +1,19 @@
+const photos = [];
 
+for await (const dirEntry of Deno.readDir("./photos")) {
+    photos.push(dirEntry.name)
+}
+
+
+const css = photos
+    .map(f => `\t.img.${f.replace('.jpg','')} { background-image: url("./photos/${f}"); }`)
+    .join("\n")
+
+const html = photos.sort().reverse()
+.map((f,i) => `\t<div class="img ${f.replace('.jpg','')} ${ i == 0 ? 'first' : ''}"></div>`)
+.join("\n")
+
+var template = `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,36 +67,18 @@
         
         .img.first {margin: 20px 0;}
 
-	.img.OLI07002 { background-image: url("./photos/OLI07002.jpg"); }
-	.img.OLI09316 { background-image: url("./photos/OLI09316.jpg"); }
-	.img.OLI09660 { background-image: url("./photos/OLI09660.jpg"); }
-	.img.OLI09716 { background-image: url("./photos/OLI09716.jpg"); }
-	.img.OLI09444 { background-image: url("./photos/OLI09444.jpg"); }
-	.img.OLI09294 { background-image: url("./photos/OLI09294.jpg"); }
-	.img.OLI04774 { background-image: url("./photos/OLI04774.jpg"); }
-	.img.OLI09279 { background-image: url("./photos/OLI09279.jpg"); }
-	.img.OLI05418 { background-image: url("./photos/OLI05418.jpg"); }
-	.img.OLI07582 { background-image: url("./photos/OLI07582.jpg"); }
-	.img.OLI09623 { background-image: url("./photos/OLI09623.jpg"); }
-	.img.OLI08925 { background-image: url("./photos/OLI08925.jpg"); }
+${css}
     </style>
 </head>
 <body>
     <div class="content">
         <header>OLIVL</header>
 
-	<div class="img OLI09716 first"></div>
-	<div class="img OLI09660 "></div>
-	<div class="img OLI09623 "></div>
-	<div class="img OLI09444 "></div>
-	<div class="img OLI09316 "></div>
-	<div class="img OLI09294 "></div>
-	<div class="img OLI09279 "></div>
-	<div class="img OLI08925 "></div>
-	<div class="img OLI07582 "></div>
-	<div class="img OLI07002 "></div>
-	<div class="img OLI05418 "></div>
-	<div class="img OLI04774 "></div>
+${html}
     </div>
 </body>
 </html>
+`;
+
+
+await Deno.writeTextFile("index.html", template, { append: false });
