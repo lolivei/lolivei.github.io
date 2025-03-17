@@ -4,14 +4,17 @@ for await (const dirEntry of Deno.readDir("./photos")) {
     photos.push(dirEntry.name)
 }
 
-
 const css = photos
+    .filter(f => f != '.DS_Store')
     .map(f => `\t.img.${f.replace('.jpg','')} { background-image: url("./photos/${f}"); }`)
     .join("\n")
 
-const html = photos.sort().reverse()
-.map((f,i) => `\t<div class="img ${f.replace('.jpg','')} ${ i == 0 ? 'first' : ''}"></div>`)
-.join("\n")
+const html = photos
+    .filter(f => f != '.DS_Store')
+    .sort()
+    .reverse()
+    .map((f,i) => `\t<div class="img ${f.replace('.jpg','')} ${ i == 0 ? 'first' : ''}"></div>`)
+    .join("\n")
 
 var template = `
 <!DOCTYPE html>
